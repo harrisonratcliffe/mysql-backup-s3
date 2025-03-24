@@ -1,6 +1,6 @@
 # MySQL Backup S3 Script
 
-This script automates the process of backing up a MySQL database to an S3-compatible storage solution, using Amazon's CLI tools. The backup is compressed and can optionally send a heartbeat request to a monitor service like [Cronitor](https://cronitor.io).
+This script automates the process of backing up a MySQL database to an S3-compatible storage solution, using Amazon's CLI tools. The backup is compressed and can optionally send a heartbeat request to a monitor service like [Uptime Robot](https://uptimerobot.com/?red=harris0cbaa4).
 
 ## Features
 
