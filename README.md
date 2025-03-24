@@ -35,10 +35,8 @@ Before running the script, ensure you have the following:
 You can download the backup script using `wget` command:
 
 ```bash
-wget https://example.com/path/to/backup_mysql.sh
+wget https://github.com/harrisonratcliffe/mysql-backup-s3/blob/main/backup-mysql.sh
 ```
-
-Please replace `https://example.com/path/to/backup_mysql.sh` with the actual URL where your backup script is hosted.
 
 ## Configuration
 
