@@ -32,10 +32,10 @@ Before running the script, ensure you have the following:
 
 ## Downloading the Backup Script
 
-You can download the backup script using `wget` command:
+You can download the backup script using the `wget` command:
 
 ```bash
-wget https://github.com/harrisonratcliffe/mysql-backup-s3/blob/main/backup-mysql.sh
+wget https://raw.githubusercontent.com/harrisonratcliffe/mysql-backup-s3/refs/heads/main/backup-mysql.sh
 ```
 
 ## Configuration
@@ -58,18 +58,36 @@ Before running the script, configure the following variables directly in the scr
     - `HEARTBEAT_URL`: URL for the heartbeat monitor.
     - `BACKUP_RETENTION_DAYS`: Number of days to keep local backups (default is `30`, set to `0` to disable).
 
+## Daily Cron Job Setup
+
+To automate the backup process, you can set up a daily cron job. Add the following line to your crontab:
+
+```bash
+0 0 * * * /scripts/backup-mysql.sh >> /var/log/mysql-backups.log 2>&1
+```
+
+This will execute the script at midnight every day and log the output to `/var/log/mysql-backups.log`. 
+
+If you want to disable MySQL logging, you can modify the cron job as follows:
+
+```bash
+0 0 * * * /scripts/backup-mysql.sh > /dev/null 2>&1
+```
+
+A useful tool to calculate the desired cron frequency is [crontab.guru](https://crontab.guru).
+
 ## Usage
 
 1. Make the script executable:
 
 ```bash
-   chmod +x backup_mysql.sh
+   chmod +x backup-mysql.sh
 ```
 
 2. Run the script:
 
 ```bash
-   ./backup_mysql.sh
+   ./backup-mysql.sh
 ```
 
 ## Error Handling
