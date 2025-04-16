@@ -19,8 +19,6 @@ DELETE_LOCAL_BACKUP="true"
 SEND_HEARTBEAT="false"
 HEARTBEAT_URL="https://hc.hyperping.io/tok_DOKTgKwaHzPVyxbUzjBE3LkW"
 BACKUP_RETENTION_DAYS=30
-
-# Log File Configuration
 ENABLE_LOGGING="true"
 LOG_FILE="/var/log/mysql-backups.log"
 
