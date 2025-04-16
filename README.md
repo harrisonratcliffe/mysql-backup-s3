@@ -10,6 +10,7 @@ This script automates the process of backing up a MySQL database to an S3-compat
 - **Optional deletion of local backup** after successful upload.
 - **Heartbeat monitoring** to track backup success.
 - **Automatic cleanup of old backups** based on retention policy.
+- **Logging** backups to a file
 
 ## Prerequisites
 
@@ -57,22 +58,18 @@ Before running the script, configure the following variables directly in the scr
     - `SEND_HEARTBEAT`: Set to `true` to send a heartbeat notification (default is `false`).
     - `HEARTBEAT_URL`: URL for the heartbeat monitor.
     - `BACKUP_RETENTION_DAYS`: Number of days to keep local backups (default is `30`, set to `0` to disable).
+    - `ENABLE_LOGGING`: Enable logging for backups to a specified log file.
+    - `LOG_FILE`: The file to log to.
 
 ## Daily Cron Job Setup
 
 To automate the backup process, you can set up a daily cron job. Add the following line to your crontab:
 
 ```bash
-0 0 * * * /scripts/backup-mysql.sh >> /var/log/mysql-backups.log 2>&1
-```
-
-This will execute the script at midnight every day and log the output to `/var/log/mysql-backups.log`. 
-
-If you want to disable MySQL logging, you can modify the cron job as follows:
-
-```bash
 0 0 * * * /scripts/backup-mysql.sh > /dev/null 2>&1
 ```
+
+This will execute the script at midnight every day.
 
 A useful tool to calculate the desired cron frequency is [crontab.guru](https://crontab.guru).
 
