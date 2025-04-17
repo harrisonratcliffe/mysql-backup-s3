@@ -17,7 +17,7 @@ BACKUP_FILE="$LOCAL_BACKUP_DIR/${DB_NAME}_backup_$DATE.sql.gz"
 # Optional Features
 DELETE_LOCAL_BACKUP="true"
 SEND_HEARTBEAT="false"
-HEARTBEAT_URL="https://hc.hyperping.io/tok_DOKTgKwaHzPVyxbUzjBE3LkW"
+HEARTBEAT_URL="https://heartbeat.uptimerobot.com/m794yyyyyyyy-xxxxxxxxxxxxxxx"
 BACKUP_RETENTION_DAYS=30
 ENABLE_LOGGING="true"
 LOG_FILE="/var/log/mysql-backups.log"
